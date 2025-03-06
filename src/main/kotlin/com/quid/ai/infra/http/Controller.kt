@@ -18,7 +18,6 @@ class Controller(
             .prompt(message.text)
             .call()
             .chatResponse()!!
-
     }
 
     @PostMapping("/stream")
