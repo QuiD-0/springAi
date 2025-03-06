@@ -10,7 +10,7 @@ import org.springframework.test.context.TestConstructor.AutowireMode.ALL
 @SpringBootTest
 @ActiveProfiles("dev")
 @TestConstructor(autowireMode = ALL)
-class ControllerTest(
+class ChatClientTest(
     private val chatClient: ChatClient
 ) {
 
