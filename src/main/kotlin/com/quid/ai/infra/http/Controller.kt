@@ -25,5 +25,10 @@ class Controller(
         log.info("Received message: {}", message)
         return aiService.stream(message.toChatRequest())
     }
+
+    @PostMapping("/now")
+    fun now(): ChatResponse {
+        return aiService.now()
+    }
 }
 

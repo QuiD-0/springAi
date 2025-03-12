@@ -1,5 +1,6 @@
 package com.quid.ai.infra.http
 
+import com.quid.ai.domain.DateTimeTools
 import org.junit.jupiter.api.Test
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.boot.test.context.SpringBootTest
@@ -40,5 +41,15 @@ class ChatClientTest(
             .subscribe()
 
         countDownLatch.await()
+    }
+
+    @Test
+    fun toolsTest() {
+        val message = """
+                What time is it?                               
+            """.trimIndent()
+        val tools = DateTimeTools()
+        chatClient.prompt(message).tools(tools).call().chatResponse()
+            .also { println(it) }
     }
 }

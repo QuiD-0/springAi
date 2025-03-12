@@ -11,5 +11,8 @@ class AiChatClient(
 
     fun chat(prompt: Prompt) = chatClient.prompt(prompt).call().chatResponse()!!
 
+    fun chat(prompt: Prompt, tools: Any) = chatClient.prompt().tools(tools).call().chatResponse()!!
+
     fun stream(prompt: Prompt) = chatClient.prompt(prompt).stream().chatResponse()
+
 }
